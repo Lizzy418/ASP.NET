@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WebApp2.Models.myTicket>
+ 
+
+@{
+    ViewBag.Title = "Ticket List";
+}
+
+<h2>My Ticket List</h2>
+
+<p>
+    @Html.ActionLink("Add Tickets", "Create")
+    @using (Html.BeginForm("Index", "myTickets", FormMethod.Get))
+    {
+        <p>
+            Your ID : @Html.TextBox("idCode", "lizzy")
+            &nbsp;Title: @Html.TextBox("SearchString")
+            &nbsp;&nbsp;<input type="submit" value="Filter" />
+        </p>
+    } 
+</p>
+<table class="table">
+    <tr>
+        <!--<th>-->
+            @*@Html.DisplayNameFor(model => model.Code)*@
+            <!--@Html.DisplayNameFor(model => model.Id)
+        </th>-->
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Theater)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Actors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Seats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Site)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <!--<td>-->
+            @*@Html.DisplayFor(modelItem => item.Code)*@
+            <!--@Html.DisplayFor(modelItem => item.Id)
+        </td>-->
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Theater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Actors)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Site)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebApp2.Models.Facility>
+@*@는 레이저임(C# 매크로형태, html언어인 척 하는 C#언어) *@
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.fid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.fid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.fid })
+        </td>
+    </tr>
+}
+
+</table>
